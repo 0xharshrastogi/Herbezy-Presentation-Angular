@@ -1,7 +1,4 @@
 {
-    "editor.formatOnSave": true,
-		"cSpell.words": [
-        "herbezy",
-        "Parens"
-    ]
+	"editor.formatOnSave": true,
+	"cSpell.words": ["herbezy", "Parens", "tailwindcss"]
 }
