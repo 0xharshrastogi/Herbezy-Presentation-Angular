@@ -2,7 +2,11 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "pnpm"
+    "packageManager": "pnpm",
+    "analytics": "62559ff0-7a9a-4eaf-98b4-c7cddaccbda7",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -104,6 +108,15 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "Herbezy-Presentation-Angular:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }
