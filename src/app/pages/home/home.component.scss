@@ -1,0 +1,12 @@
+.overlay {
+	background: linear-gradient(#2a7ff67a, #2a7ff67a),
+		url('https://images.unsplash.com/photo-1525648199074-cee30ba79a4a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+}
+
+.landing-section {
+	// Common
+	@apply bg-center bg-no-repeat bg-cover h-[45vh];
+
+	// 1024 and above
+	@apply lg:w-[50vw] lg:h-screen;
+}
