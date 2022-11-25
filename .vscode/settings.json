@@ -1,4 +1,84 @@
 {
+	"npm.packageManager": "pnpm",
 	"editor.formatOnSave": true,
-	"cSpell.words": ["herbezy", "Parens", "tailwindcss"]
+	"cSpell.words": ["herbezy", "Parens", "tailwindcss"],
+	"tailwindCSS.lint.invalidApply": "ignore",
+	"tailwindCSS.classAttributes": ["class", "className", "ngClass", "classes"],
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/bower_components": true,
+		"**/*.code-search": true,
+		"*lock.yaml": true
+	},
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+	"editor.quickSuggestions": {
+		"strings": true
+	},
+
+	"[json]": {
+		"editor.quickSuggestions": {
+			"strings": true
+		},
+		"editor.suggest.insertMode": "replace",
+		"editor.defaultFormatter": "vscode.json-language-features"
+	},
+
+	"better-comments.tags": [
+		{
+			"tag": "!",
+			"color": "#FF2D00",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "?",
+			"color": "#3498DB",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "//",
+			"color": "#474747",
+			"strikethrough": true,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "todo",
+			"color": "#FF8C00",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "*",
+			"color": "#98C379",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "bug",
+			"color": "#000",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "#ff0000",
+			"bold": true,
+			"italic": false
+		}
+	]
 }

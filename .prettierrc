@@ -1,12 +1,11 @@
 {
-  "printWidth": 100,
-  "singleQuote": true,
-  "trailingComma": "all",
-  "quoteProps": "preserve",
-  "bracketSpacing": true,
-  "arrowParens": "avoid",
-  "embeddedLanguageFormatting": "off",
-
+	"printWidth": 100,
+	"singleQuote": true,
+	"trailingComma": "es5",
+	"quoteProps": "preserve",
+	"bracketSpacing": true,
+	"arrowParens": "avoid",
+	"embeddedLanguageFormatting": "off",
 	"useTabs": true,
 	"editorconfig": true
 }

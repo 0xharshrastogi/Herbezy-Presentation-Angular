@@ -1,0 +1,84 @@
+<form class="max-w-sm mx-auto" [formGroup]="form" #formDir="ngForm" (ngSubmit)="onFormSubmit()">
+	<!-- ********************* START *************************** -->
+	<!-- ** Form Header ** -->
+	<!-- ********************* START *************************** -->
+	<header>
+		<h1 class="font-custom-primary font-black text-3xl ">Log In.</h1>
+		<span class="font-custom-secondary text-custom-secondary-light-2 font-semibold"
+			><small>See and manage your growth</small></span
+		>
+	</header>
+
+	<!-- ********************* START *************************** -->
+	<!-- ** Form Errors ** -->
+	<!-- ********************* START *************************** -->
+	<section class="h-12 mt-4 text-custom-error">
+		<ng-container *ngIf="form.errors">
+			<p *ngIf="form.hasError(CREDENTIAL_INVALID_ERROR_KEY)">
+				<small [innerHTML]="form.errors[CREDENTIAL_INVALID_ERROR_KEY].message"></small>
+			</p>
+		</ng-container>
+	</section>
+
+	<!-- ********************* START *************************** -->
+	<!-- ** Form Body ** -->
+	<!-- ********************* START *************************** -->
+	<section class="mt-2 space-y-2">
+		<!-- EMAIL FIELD -->
+		<div appFormField>
+			<app-form-label>Email*</app-form-label>
+			<input
+				appInput
+				id="email"
+				type="email"
+				placeholder="mail@website.com"
+				[formControl]="getFormControl('email')"
+			/>
+			<!-- Errors -->
+			<ng-container data-label="error" *ngIf="isErrorState(getFormControl('email'), formDir)">
+				<p *ngIf="getFormControl('email').hasError('required')">
+					Email is <strong>required</strong>
+				</p>
+				<p data-label="error" *ngIf="getFormControl('email').hasError('email')">
+					Please enter a valid email address
+				</p>
+			</ng-container>
+		</div>
+
+		<!-- PASSWORD FIELD -->
+		<div appFormField>
+			<app-form-label>Password*</app-form-label>
+
+			<input
+				appInput
+				type="password"
+				placeholder="Min. 8 characters"
+				[formControl]="getFormControl('password')"
+				title="Password should contain at least one capital case, one lower case, one number with min length of eight characters"
+			/>
+
+			<!-- Errors -->
+			<ng-container data-label="error" *ngIf="isErrorState(getFormControl('password'), formDir)">
+				<p *ngIf="getFormControl('password').hasError('required')">
+					Password is <strong>required</strong>
+				</p>
+
+				<p *ngIf="getFormControl('password').hasError('password')">
+					Please enter a <strong>valid password</strong>
+				</p>
+			</ng-container>
+		</div>
+	</section>
+
+	<!-- ********************* START *************************** -->
+	<!-- ** Form Footer ** -->
+	<!-- ********************* START *************************** -->
+
+	<footer class="mt-12 lg:mt-14">
+		<button appButton class="w-full" type="submit">Submit</button>
+		<br />
+		<span class="inline-block mt-8 font-custom-secondary font-semibold"
+			><small>Not registered yet? <a routerLink="../Signup">Create an account</a></small></span
+		>
+	</footer>
+</form>

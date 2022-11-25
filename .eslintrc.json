@@ -1,16 +1,40 @@
 {
 	"root": true,
 	"ignorePatterns": ["projects/**/*"],
+	"plugins": ["prettier"],
 	"overrides": [
 		{
 			"files": ["*.ts"],
 			"extends": [
 				"eslint:recommended",
+				"prettier",
+				"plugin:import/recommended",
+				"airbnb-base",
+				"airbnb-typescript/base",
+				"plugin:angular/johnpapa",
 				"plugin:@typescript-eslint/recommended",
 				"plugin:@angular-eslint/recommended",
+				"plugin:prettier/recommended",
 				"plugin:@angular-eslint/template/process-inline-templates"
 			],
 			"rules": {
+				"no-tabs": "off",
+				"prettier/prettier": "error",
+				"comma-dangle": "off",
+				"linebreak-style": "off",
+				"no-console": "off",
+				"timplicit-arrow-linebreak": "off",
+				"object-curly-newline": "off",
+				"import/prefer-default-export": ["off"],
+				"@typescript-eslint/indent": ["off"],
+				"@typescript-eslint/comma-dangle": "off",
+				"@typescript-eslint/consistent-type-exports": "warn",
+				"@typescript-eslint/no-unused-vars": [
+					"error",
+					{
+						"argsIgnorePattern": "_"
+					}
+				],
 				"@angular-eslint/directive-selector": [
 					"error",
 					{
@@ -33,6 +57,10 @@
 			"files": ["*.html"],
 			"extends": ["plugin:@angular-eslint/template/recommended"],
 			"rules": {}
+		},
+		{
+			"files": ["*.ts"],
+			"extends": ["plugin:@ngrx/all-requiring-type-checking"]
 		}
 	]
 }

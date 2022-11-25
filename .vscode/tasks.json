@@ -1,24 +1,40 @@
 {
-  // For more information, visit: https://go.microsoft.com/fwlink/?LinkId=733558
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "type": "npm",
-      "script": "start",
-      "isBackground": true,
-      "problemMatcher": {
-        "owner": "typescript",
-        "pattern": "$tsc",
-        "background": {
-          "activeOnStart": true,
-          "beginsPattern": {
-            "regexp": "(.*?)"
-          },
-          "endsPattern": {
-            "regexp": "bundle generation complete"
-          }
-        }
-      }
-    }
-  ]
+	// For more information, visit: https://go.microsoft.com/fwlink/?LinkId=733558
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start Herbezy Client",
+			"type": "npm",
+			"script": "start",
+			"isBackground": true,
+			"icon": { "id": "device-desktop" },
+			"problemMatcher": {
+				"owner": "typescript",
+				"pattern": "$tsc",
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": {
+						"regexp": "(.*?)"
+					},
+					"endsPattern": {
+						"regexp": "bundle generation complete"
+					}
+				}
+			}
+		},
+
+		{
+			"label": "Start Herbezy Server",
+			"command": "dotnet",
+			"args": [
+				"run",
+				"--project",
+				"${workspaceFolder}/../CleanArchitecture/src/Herbezy.Presentation/Web/WebApi.csproj",
+				"--framework",
+				"net6.0"
+			],
+			"icon": { "id": "server" },
+			"problemMatcher": "$msCompile"
+		}
+	]
 }

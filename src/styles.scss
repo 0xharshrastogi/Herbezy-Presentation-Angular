@@ -4,8 +4,34 @@
 
 body {
 	// Common
-	@apply bg-custom-secondary-light-0 font-custom-secondary;
+	@apply text-custom-secondary font-custom-secondary;
 
 	// Dark Mode
 	@apply dark:bg-custom-secondary dark:text-custom-secondary-light-1;
+}
+
+a {
+	@apply text-custom-primary hover:underline;
+}
+
+.app-input {
+	// Common
+	@apply mt-1 block bg-inherit font-medium w-full max-w-sm  px-8 py-5 rounded border border-custom-secondary-light-1 dark:border-custom-secondary-light-2;
+	// placeholder
+	@apply placeholder:text-custom-secondary-light-2;
+	// Hover
+	@apply hover:border-custom-secondary-light-2 dark:hover:border-custom-secondary-light-1;
+	// Focus
+	@apply focus:outline-none focus:border-custom-secondary-light-2;
+
+	&.ng-invalid.ng-touched {
+		@apply border-custom-error focus:border-custom-error;
+	}
+}
+
+.debug {
+	@apply bg-white bg-opacity-5;
+	* {
+		@apply bg-white bg-opacity-10;
+	}
 }

@@ -1,0 +1,129 @@
+<form
+	class="max-w-sm mx-auto my-8"
+	[formGroup]="form"
+	#formDir="ngForm"
+	(ngSubmit)="onFormSubmit()"
+>
+	<!-- ********************* START *************************** -->
+	<!-- ** Form Header ** -->
+	<!-- ********************* START *************************** -->
+	<header>
+		<h1 class="font-custom-primary font-black text-3xl ">Sign Up.</h1>
+		<span class="font-custom-secondary text-custom-secondary-light-2 font-semibold"
+			><small>See and manage your growth</small></span
+		>
+	</header>
+
+	<!-- ********************* START *************************** -->
+	<!-- ** Form Body ** -->
+	<!-- ********************* START *************************** -->
+	<section class="mt-14 space-y-2">
+		<div>
+			<app-form-label>Full Name*</app-form-label>
+			<div class="flex gap-3">
+				<div appFormField>
+					<input
+						appInput
+						type="text"
+						placeholder="First Name"
+						[formControl]="getFormControl('firstName')"
+					/>
+
+					<!-- Errors -->
+					<ng-container
+						data-label="error"
+						*ngIf="isErrorState(getFormControl('firstName'), formDir)"
+					>
+						<p *ngIf="getFormControl('firstName').hasError('required')">
+							First name is <strong>required</strong>
+						</p>
+						<p data-label="error" *ngIf="getFormControl('email').hasError('maxlength')">
+							First name must be <strong>maximum</strong> of <strong>300</strong> characters.
+						</p>
+					</ng-container>
+				</div>
+
+				<div appFormField>
+					<input
+						appInput
+						type="text"
+						placeholder="Last Name"
+						[formControl]="getFormControl('lastName')"
+					/>
+					<!-- Errors -->
+					<ng-container
+						data-label="error"
+						*ngIf="isErrorState(getFormControl('lastName'), formDir)"
+					>
+						<p *ngIf="getFormControl('lastName').hasError('required')">
+							Last name is <strong>required</strong>
+						</p>
+						<p data-label="error" *ngIf="getFormControl('lastName').hasError('maxlength')">
+							Last name must be <strong>maximum</strong> of <strong>300</strong> characters.
+						</p>
+					</ng-container>
+				</div>
+			</div>
+		</div>
+
+		<div appFormField>
+			<app-form-label>Email*</app-form-label>
+			<input
+				appInput
+				type="email"
+				placeholder="mail@website.com"
+				[formControl]="getFormControl('email')"
+			/>
+
+			<!-- Errors -->
+			<ng-container data-label="error" *ngIf="isErrorState(getFormControl('email'), formDir)">
+				<p *ngIf="getFormControl('email').hasError('required')">
+					Email is <strong>required</strong>
+				</p>
+				<p data-label="error" *ngIf="getFormControl('email').hasError('email')">
+					Please enter a <strong>valid</strong> email address
+				</p>
+				<p data-label="error" *ngIf="getFormControl('email').hasError('emailAvailable')">
+					Already have a account, please <strong><a routerLink="../Login">Login</a></strong
+					>.
+				</p>
+			</ng-container>
+		</div>
+
+		<!-- PASSWORD FIELD -->
+		<div appFormField>
+			<app-form-label>Password*</app-form-label>
+
+			<input
+				appInput
+				type="password"
+				placeholder="Min. 8 characters"
+				[formControl]="getFormControl('password')"
+				title="Password should contain at least one capital case, one lower case, one number with min length of eight characters"
+			/>
+
+			<!-- Errors -->
+			<ng-container data-label="error" *ngIf="isErrorState(getFormControl('password'), formDir)">
+				<p *ngIf="getFormControl('password').hasError('required')">
+					Password is <strong>required</strong>
+				</p>
+
+				<p *ngIf="getFormControl('password').hasError('password')">
+					Please enter a <strong>valid password</strong>
+				</p>
+			</ng-container>
+		</div>
+	</section>
+
+	<!-- ********************* START *************************** -->
+	<!-- ** Form Footer ** -->
+	<!-- ********************* START *************************** -->
+
+	<footer class="mt-12 lg:mt-14">
+		<button class="w-full" appButton type="submit">Submit</button>
+		<br />
+		<span class="inline-block mt-8 font-custom-secondary font-semibold"
+			><small>Already have an account? <a routerLink="../Login">Login Now</a></small></span
+		>
+	</footer>
+</form>

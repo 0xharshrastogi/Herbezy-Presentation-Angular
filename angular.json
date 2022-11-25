@@ -4,7 +4,9 @@
 	"cli": {
 		"packageManager": "pnpm",
 		"analytics": "62559ff0-7a9a-4eaf-98b4-c7cddaccbda7",
-		"schematicCollections": ["@angular-eslint/schematics"]
+		"schematicCollections": [
+			"@angular-eslint/schematics"
+		]
 	},
 	"newProjectRoot": "projects",
 	"projects": {
@@ -49,11 +51,18 @@
 						"outputPath": "dist/herbezy-presentation-angular",
 						"index": "src/index.html",
 						"main": "src/main.ts",
-						"polyfills": ["zone.js"],
+						"polyfills": [
+							"zone.js"
+						],
 						"tsConfig": "tsconfig.app.json",
 						"inlineStyleLanguage": "scss",
-						"assets": ["src/favicon.ico", "src/assets"],
-						"styles": ["src/styles.scss"],
+						"assets": [
+							"src/favicon.ico",
+							"src/assets"
+						],
+						"styles": [
+							"src/styles.scss"
+						],
 						"scripts": []
 					},
 					"configurations": {
@@ -70,7 +79,13 @@
 									"maximumError": "4kb"
 								}
 							],
-							"outputHashing": "all"
+							"outputHashing": "all",
+							"fileReplacements": [
+								{
+									"replace": "src/configuration/configuration.ts",
+									"with": "src/configuration/configuration.production.ts"
+								}
+							]
 						},
 						"development": {
 							"buildOptimizer": false,
@@ -104,7 +119,10 @@
 				"lint": {
 					"builder": "@angular-eslint/builder:lint",
 					"options": {
-						"lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+						"lintFilePatterns": [
+							"src/**/*.ts",
+							"src/**/*.html"
+						]
 					}
 				}
 			}
