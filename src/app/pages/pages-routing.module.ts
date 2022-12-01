@@ -13,6 +13,11 @@ import { HomeComponent } from './home/home.component';
 				loadChildren: async () =>
 					(await import('./authenticate/authenticate.module')).AuthenticateModule,
 			},
+			{
+				path: 'Dashboard',
+				loadChildren: async () =>
+					(await import('./dashboard/dashboard.module')).DashboardModule,
+			},
 		]),
 	],
 	exports: [RouterModule],
