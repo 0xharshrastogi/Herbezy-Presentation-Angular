@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 import { RootComponent } from './root/root.component';
 
 @NgModule({
@@ -9,11 +10,11 @@ import { RootComponent } from './root/root.component';
 				path: '',
 				pathMatch: 'full',
 				component: RootComponent,
+				title: 'Herbezy Dashboard',
 				children: [
 					{
-						path: 'lol',
-						component: RootComponent,
-						title: 'Herbezy Dashboard',
+						path: '',
+						component: HomeComponent,
 					},
 				],
 			},
