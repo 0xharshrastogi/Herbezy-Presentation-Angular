@@ -68,6 +68,16 @@ export class AuthenticateEffects {
 		{ dispatch: false }
 	);
 
+	private logoutEffect = createEffect(
+		() => {
+			return this.actions.pipe(
+				ofType(AuthActionTypes.logout),
+				tap(() => localStorage.removeItem(JWT_AUTH_TOKEN))
+			);
+		},
+		{ dispatch: false }
+	);
+
 	public constructor(private readonly actions: Actions, auth: AuthService, store: Store) {
 		this.auth = auth;
 		this.store = store;

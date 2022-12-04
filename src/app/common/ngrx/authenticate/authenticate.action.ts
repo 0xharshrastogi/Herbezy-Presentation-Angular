@@ -21,4 +21,6 @@ export class AuthActionTypes {
 		'[Authentication] JSON Web Token Found',
 		props<{ token: string }>()
 	);
+
+	public static logout = createAction('[Authentication] Logout');
 }

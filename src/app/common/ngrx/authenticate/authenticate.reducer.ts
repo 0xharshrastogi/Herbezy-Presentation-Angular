@@ -32,5 +32,7 @@ export const reducer = createReducer<IAuthReducer>(
 	on(
 		AuthActionTypes.authenticationSucceed,
 		(state, { token }): IAuthReducer => ({ ...state, bearer: token, isAuthenticating: false })
-	)
+	),
+
+	on(AuthActionTypes.logout, (state): IAuthReducer => ({ ...state, bearer: null }))
 );

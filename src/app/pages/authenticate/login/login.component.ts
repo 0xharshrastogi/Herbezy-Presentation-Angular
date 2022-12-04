@@ -92,7 +92,6 @@ export class LoginComponent extends BaseComponentFormHandler {
 			props: { token: jsonWebToken },
 		});
 
-		// TODO: Update variable this route to "/Dashboard"
-		this.router.navigate(['Home']);
+		this.router.navigate(['Dashboard']);
 	}
 }
