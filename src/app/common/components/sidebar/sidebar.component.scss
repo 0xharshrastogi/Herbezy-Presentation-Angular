@@ -1,29 +1,23 @@
 $width-when-collapsed: 80px;
 
 :host {
-	transform: translateX(0);
 	transition: all 100ms ease-in-out;
 
 	@media (min-width: 1024px) {
 		i.bx-x {
-			display: none;
+			@apply hidden;
 		}
 
 		i.bx-chevron-left {
-			transform: rotate(0deg);
+			@apply rotate-0;
 			transition: transform 2s ease-in-out;
 		}
 	}
 
 	&.close {
-		transform: translate(-100%);
-		opacity: 0;
-
+		@apply -translate-x-full opacity-0 lg:translate-x-0 lg:opacity-100;
 		@media (min-width: 1024px) {
-			transform: translate(0);
-			opacity: 1;
 			width: $width-when-collapsed;
-
 			i.bx-chevron-left {
 				transform: rotate(180deg);
 			}
@@ -31,7 +25,11 @@ $width-when-collapsed: 80px;
 	}
 
 	&.close #app-logo {
-		opacity: 0;
+		@apply opacity-0;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		background: hsl(240deg 21% 11%);
 	}
 }
 
@@ -39,7 +37,7 @@ $width-when-collapsed: 80px;
 footer {
 	ul a,
 	button {
-		@apply font-medium inline-block w-full text-custom-secondary-light-2 p-3 rounded-lg hover:no-underline hover:text-custom-secondary whitespace-nowrap;
+		@apply font-medium inline-block w-full text-custom-secondary-light-2 p-3 rounded-lg hover:no-underline hover:text-custom-secondary dark:hover:text-custom-secondary-light-0 whitespace-nowrap;
 		transition: all 250ms ease-in;
 
 		.icon-wrapper {
@@ -52,27 +50,22 @@ footer {
 	}
 
 	button {
-		text-align: left;
+		@apply text-left;
 	}
 }
 
 // When Sidebar is collapsed
 :host.close {
 	header {
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		@apply flex items-center justify-center;
 
 		#app-logo,
 		h4 {
-			display: none;
+			@apply hidden;
 		}
 
 		button {
-			margin-left: 0;
-			display: flex;
-			align-items: center;
-			justify-content: center;
+			@apply flex ml-0 items-center justify-center;
 		}
 	}
 
@@ -82,14 +75,10 @@ footer {
 
 		a,
 		button {
-			@apply hover:bg-custom-secondary-light-0 relative;
+			@apply hover:bg-custom-secondary-light-0 relative dark:hover:bg-custom-secondary;
 
 			.label-wrapper {
-				display: none;
-				position: absolute;
-				top: 50%;
-				transform: translate(0, -50%);
-				transition: all 150ms ease-in-out;
+				@apply absolute top-1/2 hidden translate-x-0 -translate-y-1/2 transition-all ease-in-out;
 			}
 
 			&.active {
@@ -100,10 +89,7 @@ footer {
 		a:hover,
 		button:hover {
 			.label-wrapper {
-				display: inline-block;
-				@apply text-custom-secondary p-2 text-xs rounded backdrop:filter backdrop-blur-md font-normal;
-				background-color: rgba($color: #000000, $alpha: 0.1);
-
+				@apply inline-block text-custom-secondary bg-custom-secondary-light-3 bg-opacity-10 p-2 text-xs rounded backdrop:filter backdrop-blur-md font-normal dark:bg-gray-600 dark:text-custom-secondary-light-1;
 				animation: fade-in 250ms forwards;
 			}
 		}

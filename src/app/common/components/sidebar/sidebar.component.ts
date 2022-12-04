@@ -20,7 +20,7 @@ export class SidebarComponent {
 	];
 
 	@HostBinding('class') public className =
-		'fixed bg-white min-h-screen shadow w-full top-0 lg:max-w-xs lg:static sidebar-container flex flex-col';
+		'fixed bg-white translate-x-0 min-h-screen shadow w-full top-0 lg:max-w-xs lg:static sidebar-container flex flex-col';
 
 	public get isActive() {
 		return this.isOpen;
