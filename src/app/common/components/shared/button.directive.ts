@@ -6,6 +6,8 @@ import { Directive, ElementRef, HostBinding, Input } from '@angular/core';
 export class ButtonDirective {
 	private readonly elementRef: ElementRef<Element>;
 
+	@Input() variant: 'Default' | 'Icon' = 'Default';
+
 	@Input() set full(value: boolean) {
 		console.count('Button Full');
 		const { classList } = this.elementRef.nativeElement;
@@ -18,10 +20,17 @@ export class ButtonDirective {
 		classList.remove(className);
 	}
 
-	@HostBinding('class') public className =
-		'inline-block capitalize bg-custom-primary px-3 py-5 text-white font-semibold rounded-[4px] dark:text-white hover:bg-custom-primary-dark-0 shadow-md outline-offset-4 outline-custom-primary-light-2 active:shadow-none';
+	@HostBinding('class') public get className() {
+		return ButtonDirective.buttonClassnames[this.variant];
+	}
 
 	constructor(elementRef: ElementRef) {
 		this.elementRef = elementRef;
 	}
+
+	private static buttonClassnames = {
+		'Default':
+			'inline-block capitalize bg-custom-primary px-3 py-5 text-white font-semibold rounded-[4px] dark:text-white hover:bg-custom-primary-dark-0 shadow-md outline-offset-4 outline-custom-primary-light-2 active:shadow-none',
+		'Icon': 'font-md hover:bg-custom-secondary-light-0 px-2 py-1 rounded-md transition-all ease-in',
+	};
 }
