@@ -64,7 +64,7 @@ export class SignupComponent extends BaseComponentFormHandler {
 				token,
 			},
 		});
-		this.router.navigate(['Home']);
+		this.router.navigate(['Dashboard']);
 
 		console.log('Signup Successful...');
 	}

@@ -1,5 +1,8 @@
 import { Component, ElementRef, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthActionTypes } from '@common/ngrx/authenticate/authenticate.action';
+
+import { Store } from '@ngrx/store';
 
 @Component({
 	selector: 'app-sidebar, [app-sidebar]',
@@ -8,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class SidebarComponent {
 	private readonly router: Router;
+
+	private readonly store: Store;
 
 	private isOpen = false;
 
@@ -41,13 +46,15 @@ export class SidebarComponent {
 
 	@Output() sidebarCollapse = new EventEmitter<boolean>();
 
-	constructor(elementRef: ElementRef<HTMLElement>, router: Router) {
+	constructor(elementRef: ElementRef<HTMLElement>, router: Router, store: Store) {
 		this.elementRef = elementRef;
 		this.router = router;
+		this.store = store;
 	}
 
 	public logout() {
-		console.log('Logging out', this);
+		const action = AuthActionTypes.logout();
+		this.store.dispatch(action);
 		this.router.navigate(['Authenticate', 'Login']);
 	}
 }
