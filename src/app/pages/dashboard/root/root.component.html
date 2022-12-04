@@ -1,1 +1,8 @@
-<h3>This is Dashboard root component</h3>
+<main class="min-h-screen">
+	<app-sidebar [isActive]="!false"></app-sidebar>
+
+	<section class="flex-1">
+		<div>navbar</div>
+		<app-dashboard-home></app-dashboard-home>
+	</section>
+</main>

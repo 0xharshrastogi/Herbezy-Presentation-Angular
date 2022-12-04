@@ -1,0 +1,43 @@
+<header class="p-3 flex items-center shadow h-14">
+	<a id="app-logo" routerLink="/"><img src="assets/Herbezy-Icon.svg" alt="icon" /></a>
+	<h4 class="flex-1 text-center font-bold font-custom-secondary text-xl">
+		<span class="text-custom-primary">H</span><span class="text-custom-secondary">erbezy</span>
+	</h4>
+
+	<button
+		class="ml-auto"
+		*ngIf="!isActive; else collapsePanelBtn"
+		title="Expand Panel"
+		(click)="isActive = true"
+	>
+		<i class="bx bx-chevron-left bx-sm"></i>
+	</button>
+
+	<ng-template #collapsePanelBtn
+		><button class="ml-auto" title="Collapse Panel" (click)="isActive = false">
+			<i class="bx bx-x"></i><i class="bx bx-chevron-left bx-sm"></i></button
+	></ng-template>
+</header>
+
+<!-- Content -->
+<section class="sidebar-content p-3 flex-1">
+	<ul>
+		<li *ngFor="let navigationRoute of navigationRoutes">
+			<a [routerLink]="navigationRoute.path" routerLinkActive="active"
+				><span class="icon-wrapper"><i [class]="navigationRoute.boxIconClassName"></i></span>
+				<span class="label-wrapper">{{ navigationRoute.label }}</span></a
+			>
+		</li>
+	</ul>
+</section>
+
+<footer class="p-3">
+	<ul>
+		<li>
+			<button (click)="logout()">
+				<span class="icon-wrapper "> <i class="bx bx-log-out"></i> </span>
+				<span class="label-wrapper">Logout</span>
+			</button>
+		</li>
+	</ul>
+</footer>

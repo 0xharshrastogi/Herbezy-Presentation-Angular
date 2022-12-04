@@ -1,0 +1,122 @@
+$width-when-collapsed: 80px;
+
+:host {
+	transform: translateX(0);
+	transition: all 100ms ease-in-out;
+
+	@media (min-width: 1024px) {
+		i.bx-x {
+			display: none;
+		}
+
+		i.bx-chevron-left {
+			transform: rotate(0deg);
+			transition: transform 2s ease-in-out;
+		}
+	}
+
+	&.close {
+		transform: translate(-100%);
+		opacity: 0;
+
+		@media (min-width: 1024px) {
+			transform: translate(0);
+			opacity: 1;
+			width: $width-when-collapsed;
+
+			i.bx-chevron-left {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	&.close #app-logo {
+		opacity: 0;
+	}
+}
+
+.sidebar-content,
+footer {
+	ul a,
+	button {
+		@apply font-medium inline-block w-full text-custom-secondary-light-2 p-3 rounded-lg hover:no-underline hover:text-custom-secondary whitespace-nowrap;
+		transition: all 250ms ease-in;
+
+		.icon-wrapper {
+			@apply px-2;
+		}
+
+		&.active {
+			@apply bg-custom-primary text-white;
+		}
+	}
+
+	button {
+		text-align: left;
+	}
+}
+
+// When Sidebar is collapsed
+:host.close {
+	header {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		#app-logo,
+		h4 {
+			display: none;
+		}
+
+		button {
+			margin-left: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+
+	.sidebar-content ul,
+	footer ul {
+		@apply space-y-1;
+
+		a,
+		button {
+			@apply hover:bg-custom-secondary-light-0 relative;
+
+			.label-wrapper {
+				display: none;
+				position: absolute;
+				top: 50%;
+				transform: translate(0, -50%);
+				transition: all 150ms ease-in-out;
+			}
+
+			&.active {
+				@apply bg-custom-primary;
+			}
+		}
+
+		a:hover,
+		button:hover {
+			.label-wrapper {
+				display: inline-block;
+				@apply text-custom-secondary p-2 text-xs rounded backdrop:filter backdrop-blur-md font-normal;
+				background-color: rgba($color: #000000, $alpha: 0.1);
+
+				animation: fade-in 250ms forwards;
+			}
+		}
+	}
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+		transform: translate(20px, -50%);
+	}
+	to {
+		opacity: 1;
+		transform: translate(30px, -50%);
+	}
+}
