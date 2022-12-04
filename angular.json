@@ -58,7 +58,8 @@
 						"inlineStyleLanguage": "scss",
 						"assets": [
 							"src/favicon.ico",
-							"src/assets"
+							"src/assets",
+							"src/configuration/netlify.toml"
 						],
 						"styles": [
 							"src/styles.scss"
@@ -76,7 +77,7 @@
 								{
 									"type": "anyComponentStyle",
 									"maximumWarning": "2kb",
-									"maximumError": "4kb"
+									"maximumError": "10kb"
 								}
 							],
 							"outputHashing": "all",
