@@ -1,8 +1,14 @@
 <main class="min-h-screen">
-	<app-sidebar [isActive]="!false"></app-sidebar>
+	<app-sidebar
+		[isActive]="isSidebarActive"
+		(sidebarCollapse)="isSidebarActive = $event"
+	></app-sidebar>
 
 	<section class="flex-1">
-		<div>navbar</div>
+		<app-navigation-bar
+			[isSidebarActive]="isSidebarActive"
+			(sidebarClose)="isSidebarActive = $event"
+		></app-navigation-bar>
 		<app-dashboard-home></app-dashboard-home>
 	</section>
 </main>

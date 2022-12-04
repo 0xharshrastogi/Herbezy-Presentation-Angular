@@ -3,14 +3,18 @@ $width-when-collapsed: 80px;
 :host {
 	transition: all 100ms ease-in-out;
 
+	i.bx-chevron-left {
+		@apply hidden;
+	}
+
 	@media (min-width: 1024px) {
 		i.bx-x {
 			@apply hidden;
 		}
 
 		i.bx-chevron-left {
-			@apply rotate-0;
-			transition: transform 2s ease-in-out;
+			@apply rotate-0 inline-block;
+			transition: transform 250ms ease-in-out;
 		}
 	}
 

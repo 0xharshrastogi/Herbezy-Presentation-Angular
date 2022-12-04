@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostBinding, Input } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -38,6 +38,8 @@ export class SidebarComponent {
 		}
 		classList.add(CLASSNAMES);
 	}
+
+	@Output() sidebarCollapse = new EventEmitter<boolean>();
 
 	constructor(elementRef: ElementRef<HTMLElement>, router: Router) {
 		this.elementRef = elementRef;

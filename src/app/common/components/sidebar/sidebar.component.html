@@ -1,4 +1,4 @@
-<header class="p-3 flex items-center shadow h-14">
+<header class="p-3 flex items-center h-14">
 	<a id="app-logo" routerLink="/"><img src="assets/Herbezy-Icon.svg" alt="icon" /></a>
 	<h4 class="flex-1 text-center font-bold font-custom-secondary text-xl">
 		<span class="text-custom-primary">H</span
@@ -6,16 +6,24 @@
 	</h4>
 
 	<button
+		appButton
+		variant="Icon"
 		class="ml-auto"
 		*ngIf="!isActive; else collapsePanelBtn"
 		title="Expand Panel"
-		(click)="isActive = true"
+		(click)="sidebarCollapse.next(true)"
 	>
 		<i class="bx bx-chevron-left bx-sm"></i>
 	</button>
 
 	<ng-template #collapsePanelBtn
-		><button class="ml-auto" title="Collapse Panel" (click)="isActive = false">
+		><button
+			appButton
+			variant="Icon"
+			class="ml-auto"
+			title="Collapse Panel"
+			(click)="sidebarCollapse.emit(false)"
+		>
 			<i class="bx bx-x"></i><i class="bx bx-chevron-left bx-sm"></i></button
 	></ng-template>
 </header>
